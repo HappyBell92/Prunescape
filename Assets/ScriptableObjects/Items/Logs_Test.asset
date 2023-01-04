@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb75999defb67f4c9f902b160531ff1, type: 3}
+  m_Name: Logs_Test
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4033630405627240924, guid: 381f9e50909e550439b9a06ea0fe4e0c, type: 3}
+  type: 2
+  id: Logs_Test
+  description: Logs For Testing Inventory System
