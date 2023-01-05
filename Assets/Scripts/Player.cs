@@ -90,6 +90,7 @@ public class Player : MonoBehaviour
             myAgent.isStopped = false;
             if (!EventSystem.current.IsPointerOverGameObject() || EventSystem.current.tag == "ClickThrough")
             {
+                DisableOutline();
                 clickWindow.SetActive(false);
                 Ray rayOrigin = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
                 RaycastHit hitInfo;
@@ -115,11 +116,6 @@ public class Player : MonoBehaviour
                             {
                                 compass.compassParent.SetActive(false);
                             }
-                        }
-                        Outline outlineScript = target.GetComponent<Outline>();
-                        if (outlineScript)
-                        {
-                            outlineScript.enabled = false;
                         }
                     }
                     target = null;
@@ -298,11 +294,7 @@ public class Player : MonoBehaviour
             TreeScript treeScript = target.GetComponent<TreeScript>();
             if (treeScript)
             {
-                Outline outlineScript = target.GetComponent<Outline>();
-                if (outlineScript)
-                {
-                    outlineScript.enabled = false;
-                }
+                DisableOutline();
 
                 InteractInventoryAdd();
                 treeScript.ChopDown();
@@ -324,15 +316,6 @@ public class Player : MonoBehaviour
             }
             target = null;
             isInteracting = false;
-
-
-            //ItemControl item = target.GetComponent<ItemControl>();
-            //if (item)
-            //{
-            //    item.Pickup();
-            //    target = null;
-            //    isInteracting = false;
-            //}
         }
     }
 
@@ -371,14 +354,7 @@ public class Player : MonoBehaviour
                     myAgent.SetDestination(compass.compassLocation.gameObject.transform.position);
                 }
             }
-            
-
-            // creates outline when target is selected
-            Outline outlineScript = target.GetComponent<Outline>();
-            if (outlineScript)
-            {
-                outlineScript.enabled = true;
-            }
+            EnableOutline();
 
             // check if player has reached the target object then start interaction
             float distanceToTarget = Vector3.SqrMagnitude(transform.position - target.transform.position);
@@ -415,11 +391,7 @@ public class Player : MonoBehaviour
                     compass.compassParent.SetActive(false);
                 }
             }
-            Outline outlineScript = target.GetComponent<Outline>();
-            if (outlineScript)
-            {
-                outlineScript.enabled = false;
-            }
+            DisableOutline();
         }
         moveArrow = GameObject.Find("MoveArrowPrefab(Clone)");
         Destroy(moveArrow);
@@ -446,6 +418,31 @@ public class Player : MonoBehaviour
         if (item)
         {
             inventory.AddItem(item.item, 1);
+        }
+    }
+
+    public void DisableOutline()
+    {
+        if(target != null)
+        {
+            Outline outlineScript = target.GetComponent<Outline>();
+            if (outlineScript)
+            {
+                outlineScript.enabled = false;
+            }
+        }
+        
+    }
+
+    public void EnableOutline()
+    {
+        if (target != null)
+        {
+            Outline outlineScript = target.GetComponent<Outline>();
+            if (outlineScript)
+            {
+                outlineScript.enabled = true;
+            }
         }
     }
 }
