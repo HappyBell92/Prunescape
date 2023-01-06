@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TreeScript : MonoBehaviour
 {
+    public bool infinite;
     public bool felled;
     public bool growing;
     public float growTime;
     public Collider treeCollider;
     public Renderer treeRenderer;
+    public Renderer shadowRenderer;
+    public Renderer stumpRenderer;
     public Player playerScript;
     public Outline outline;
-    public Item item;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,8 @@ public class TreeScript : MonoBehaviour
         growing = false;
         treeCollider.enabled = true;
         treeRenderer.enabled = true;
+        shadowRenderer.enabled = true;
+        stumpRenderer.enabled = false;
         playerScript = GameObject.Find("Player").GetComponent<Player>();
     }
 
@@ -30,6 +34,8 @@ public class TreeScript : MonoBehaviour
         {
             treeCollider.enabled = false;
             treeRenderer.enabled = false;
+            shadowRenderer.enabled = false;
+            stumpRenderer.enabled = true;
             if (!growing)
             {
                 StartCoroutine(Regrow());
@@ -40,6 +46,8 @@ public class TreeScript : MonoBehaviour
         {
             treeCollider.enabled = true;
             treeRenderer.enabled = true;
+            shadowRenderer.enabled = true;
+            stumpRenderer.enabled = false;
         }
     }
 

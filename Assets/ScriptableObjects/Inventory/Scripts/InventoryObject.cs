@@ -6,33 +6,38 @@ using System.IO;
 using UnityEditor;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
-public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
+public class InventoryObject : ScriptableObject
 {
     public string savePath;
-    private ItemDatabaseObject database;
-    public List<InventorySlot> container = new List<InventorySlot>();
+    public ItemDatabaseObject database;
+    public Inventory container;
 
-    private void OnEnable()
+    public void AddItem(Item _item, int _amount)
     {
-#if UNITY_EDITOR
-        database = (ItemDatabaseObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", typeof(ItemDatabaseObject));
-#else
-        database = Resources.Load<ItemDatabaseObject>("Database");
-#endif
-    }
-    public void AddItem(ItemObject _item, int _amount)
-    {
-        for(int i = 0; i < container.Count; i++)
+        //if(_item.buffs.Length > 0)
+        //{
+        //    container.Items.Add(new InventorySlot(_item.id, _item, _amount));
+        //    return;
+        //}
+
+        if (!_item.canStack)
         {
-            if(container[i].item == _item)
+            container.Items.Add(new InventorySlot(_item.id, _item, _amount));
+            return;
+        }
+
+        for (int i = 0; i < container.Items.Count; i++)
+        {
+            if(container.Items[i].item.id == _item.id)
             {
-                container[i].AddAmount(_amount);
+                container.Items[i].AddAmount(_amount);
                 return;
             }
         }
-        container.Add(new InventorySlot(database.GetID[_item], _item, _amount));
+        container.Items.Add(new InventorySlot(_item.id, _item, _amount));
     }
 
+    [ContextMenu("Save")]
     public void Save()
     {
         Debug.Log("Inventory Saved");
@@ -43,6 +48,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         file.Close();
     }
 
+    [ContextMenu("Load")]
     public void Load()
     {
         if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
@@ -55,27 +61,26 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
         }
     }
 
-    public void OnAfterDeserialize()
+    [ContextMenu("Clear Inventory")]
+    public void Clear()
     {
-        for (int i = 0; i < container.Count; i++)
-        {
-            container[i].item = database.GetItem[container[i].ID];
-        }
+        container = new Inventory();
     }
+}
 
-    public void OnBeforeSerialize()
-    {
-        
-    }
+[System.Serializable]
+public class Inventory
+{
+    public List<InventorySlot> Items = new List<InventorySlot>();
 }
 
 [System.Serializable]
 public class InventorySlot
 {
     public int ID;
-    public ItemObject item;
+    public Item item;
     public int amount;
-    public InventorySlot(int _id, ItemObject _item, int _amount)
+    public InventorySlot(int _id, Item _item, int _amount)
     {
         ID = _id;
         item = _item;

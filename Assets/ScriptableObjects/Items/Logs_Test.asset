@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cb75999defb67f4c9f902b160531ff1, type: 3}
   m_Name: Logs_Test
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4033630405627240924, guid: 381f9e50909e550439b9a06ea0fe4e0c, type: 3}
+  stackable: 0
+  id: 1
+  uiDisplay: {fileID: 21300000, guid: a195da7278a5cf54dbcfb66e10e8b6b4, type: 3}
   type: 2
-  id: Logs_Test
   description: Logs For Testing Inventory System
+  buffs: []

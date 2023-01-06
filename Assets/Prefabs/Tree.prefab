@@ -690,11 +690,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410a0d00b140dc489510a65e29a3c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  infinite: 0
   felled: 0
   growing: 0
   growTime: 10
   treeCollider: {fileID: 9214613621137754184}
   treeRenderer: {fileID: 4590930277300416081}
+  shadowRenderer: {fileID: 6042913561658749729}
+  stumpRenderer: {fileID: 3717400164623153912}
   playerScript: {fileID: 0}
   outline: {fileID: 9214613621137754185}
   item: {fileID: 0}

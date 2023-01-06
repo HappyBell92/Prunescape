@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c185c32ced170e84aacf1010d0c4443e, type: 3}
   m_Name: Weapon_Sword_Iron
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  stackable: 0
+  id: 3
+  uiDisplay: {fileID: 0}
   type: 1
-  id: Weapon_Sword_Iron
   description: An iron sword
+  buffs:
+  - attribute: 0
+    value: 0
+    min: 0
+    max: 10
   atkBonus: 10
   defenceBonus: 0

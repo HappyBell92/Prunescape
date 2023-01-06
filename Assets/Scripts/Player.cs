@@ -107,6 +107,12 @@ public class Player : MonoBehaviour
                 // move to clicked ground location
                 else if (Physics.Raycast(rayOrigin, out hitInfo, Mathf.Infinity, moveLayer))
                 {
+                    if (isInteracting)
+                    {
+                        Debug.Log("Stopped interaction");
+                        StopCoroutine(interactco);
+                        isInteracting = false;
+                    }
                     if (target != null)
                     {
                         if(target.gameObject.tag != "Item")
@@ -119,7 +125,7 @@ public class Player : MonoBehaviour
                         }
                     }
                     target = null;
-                    isInteracting = false;
+                    //isInteracting = false;
                     myAgent.stoppingDistance = 0;
                     myAgent.SetDestination(hitInfo.point);
                     Vector3 newPosition = hitInfo.point + new Vector3(0, 0f, 0);
@@ -169,12 +175,12 @@ public class Player : MonoBehaviour
             }
             
         }
-        if (!isInteracting && interactTimeOn)
-        {
-            Debug.Log("Stopped interaction");
-            StopCoroutine(interactco);
-            interactTimeOn = false;
-        }
+        //if (!isInteracting && interactTimeOn)
+        //{
+        //    Debug.Log("Stopped interaction");
+        //    StopCoroutine(interactco);
+        //    interactTimeOn = false;
+        //}
 
         // If player cannot reach target destory move arrow
         if(!destroying && myAgent.velocity.magnitude < 0.01f)
@@ -294,12 +300,23 @@ public class Player : MonoBehaviour
             TreeScript treeScript = target.GetComponent<TreeScript>();
             if (treeScript)
             {
-                DisableOutline();
-
+                
                 InteractInventoryAdd();
-                treeScript.ChopDown();
-                target = null;
-                isInteracting = false;
+                if (treeScript.infinite)
+                {
+                    Debug.Log("Again");
+                    movingToInteract = true;
+                }
+                if (!treeScript.infinite)
+                {
+                    Debug.Log("asdasd");
+                    DisableOutline();
+                    treeScript.ChopDown();
+                    target = null;
+                    isInteracting = false;
+                    interactTimeOn = false;
+                    return;
+                }
             }
         }
     }
@@ -308,10 +325,10 @@ public class Player : MonoBehaviour
     {
         if (target.gameObject.tag == "Item")
         {
-            var item = target.GetComponent<Item>();
+            var item = target.GetComponent<GroundItem>();
             if (item)
             {
-                inventory.AddItem(item.item, 1);
+                inventory.AddItem(new Item(item.item), 1);
                 Destroy(target.gameObject);
             }
             target = null;
@@ -331,7 +348,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1);
         Debug.Log("Chop");
         InteractPicker();
-        interactTimeOn = false;
     }
 
     public void MoveToInteract()
@@ -409,15 +425,15 @@ public class Player : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.container.Clear();
+        inventory.container.Items.Clear();
     }
 
     public void InteractInventoryAdd()
     {
-        var item = target.GetComponent<Item>();
+        var item = target.GetComponent<GroundItem>();
         if (item)
         {
-            inventory.AddItem(item.item, 1);
+            inventory.AddItem(new Item(item.item), 1);
         }
     }
 

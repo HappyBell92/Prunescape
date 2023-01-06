@@ -29,6 +29,38 @@ public class CinemachineFreelookZoom : MonoBehaviour
             maxScale = Mathf.Max(minScale, maxScale);
         }
 
+        private void Start()
+        {
+            CinemachineCore.GetInputAxis = GetAxisCustom;
+        }
+
+        public float GetAxisCustom(string axisName)
+        {
+            if (axisName == "Horizontal")
+            {
+                if (Input.GetMouseButton(2))
+                {
+                    return UnityEngine.Input.GetAxis("Mouse X");
+                }
+                else
+                {
+                    return UnityEngine.Input.GetAxis("Horizontal");
+                }
+            }
+            else if (axisName == "Vertical")
+            {
+                if (Input.GetMouseButton(2))
+                {
+                    return UnityEngine.Input.GetAxis("Mouse Y");
+                }
+                else
+                {
+                    return UnityEngine.Input.GetAxis("Vertical");
+                }
+            }
+            return UnityEngine.Input.GetAxis(axisName);
+        }
+
         void Awake()
         {
             freelook = GetComponentInChildren<CinemachineFreeLook>();
