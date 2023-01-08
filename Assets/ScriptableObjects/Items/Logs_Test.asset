@@ -15,6 +15,7 @@ MonoBehaviour:
   stackable: 0
   id: 1
   uiDisplay: {fileID: 21300000, guid: a195da7278a5cf54dbcfb66e10e8b6b4, type: 3}
+  groundItem: {fileID: 919132149155446097, guid: cb5d8e690eea20544a53574cb43802dc, type: 3}
   type: 2
   description: Logs For Testing Inventory System
   buffs: []

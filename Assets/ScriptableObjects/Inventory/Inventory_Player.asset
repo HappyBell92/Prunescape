@@ -15,4 +15,200 @@ MonoBehaviour:
   savePath: /inventory.Save
   database: {fileID: 11400000, guid: 7052b8abae7fa7e4ab6839e1dc6bb5f6, type: 2}
   container:
-    Items: []
+    Items:
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0
+    - ID: -1
+      item:
+        canStack: 0
+        name: 
+        id: 0
+        buffs: []
+      amount: 0

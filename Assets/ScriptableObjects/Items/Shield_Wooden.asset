@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Shield_Wooden
   m_EditorClassIdentifier: 
   stackable: 0
-  id: 0
+  id: 2
   uiDisplay: {fileID: 0}
+  groundItem: {fileID: 919132149155446097, guid: db6e0d89cd221fc4490d4d3d4bec0dec, type: 3}
   type: 1
   description: A wooden shield. Keep away from fire
   buffs:

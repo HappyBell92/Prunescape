@@ -22,6 +22,7 @@ public abstract class ItemObject : ScriptableObject
     public bool stackable;
     public int id;
     public Sprite uiDisplay;
+    public GameObject groundItem;
     public ItemType type;
     [TextArea(15, 20)]
     public string description;

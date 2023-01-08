@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3cfdb76dd45534780afed79668dd25, type: 3}
   m_Name: Food_Bread
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  stackable: 0
+  id: 0
+  uiDisplay: {fileID: 21300000, guid: a195da7278a5cf54dbcfb66e10e8b6b4, type: 3}
+  groundItem: {fileID: 919132149155446097, guid: 9078b2fbc6c7c544d877a629a895d300, type: 3}
   type: 0
-  id: Food_Bread
   description: Freshly cooked bread
+  buffs: []
   restoreHealthValue: 3

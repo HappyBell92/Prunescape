@@ -356,7 +356,7 @@ public class Player : MonoBehaviour
         {
             if(target.gameObject.tag == "Item")
             {
-                destinationThreshhold = 1;
+                destinationThreshhold = 9;
                 myAgent.SetDestination(target.gameObject.transform.position);
             }
 
@@ -425,16 +425,17 @@ public class Player : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        inventory.container.Items.Clear();
+        inventory.container.Items = new InventorySlot[28];
     }
 
     public void InteractInventoryAdd()
     {
-        var item = target.GetComponent<GroundItem>();
+        var item = target.GetComponent<GatherItem>();
         if (item)
         {
             inventory.AddItem(new Item(item.item), 1);
         }
+
     }
 
     public void DisableOutline()

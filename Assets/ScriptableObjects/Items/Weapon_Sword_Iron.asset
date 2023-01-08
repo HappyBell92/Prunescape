@@ -15,6 +15,7 @@ MonoBehaviour:
   stackable: 0
   id: 3
   uiDisplay: {fileID: 0}
+  groundItem: {fileID: 919132149155446097, guid: d4706c2a6b534504cbf391fa3b7653c7, type: 3}
   type: 1
   description: An iron sword
   buffs:
